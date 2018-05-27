@@ -14,10 +14,8 @@ private:
   int rows, cols;
   Type **data;
 
-public:
-
-  Matrix(int rows = 1, int cols = 1) : rows(rows), cols(cols) {
-    data = new Type * [rows];
+  void fillCells(int rows, int cols) {
+    data = new Type *[rows];
     for (int i = 0; i < rows; i++) {
       data[i] = new Type[cols];
 
@@ -27,10 +25,16 @@ public:
     }
   }
 
+public:
+
+  Matrix(int rows = 1, int cols = 1) : rows(rows), cols(cols) {
+    fillCells(this->rows, this->cols);
+  }
+
   ~Matrix() {
     if (data != nullptr) {
       for (int i = 0; i < rows; i++)
-        delete[] data[i];
+        delete data[i];
 
       delete[] data;
       data = nullptr;

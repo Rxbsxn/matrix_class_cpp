@@ -6,8 +6,8 @@ using namespace std;
 
 int main()
 {
-  Matrix<double> mat(2, 3);
-  Matrix<double> mat2(2, 3);
+  Matrix<double> mat(4, 3);
+  Matrix<double> mat2(6, 3);
 
   auto res = mat.operator+(mat2);
 
